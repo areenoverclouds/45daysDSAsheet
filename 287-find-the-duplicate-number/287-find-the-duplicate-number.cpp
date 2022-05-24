@@ -2,24 +2,6 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int i;
-        
-        //sorting
-       /* sort(nums.begin(),nums.end());
-        for(i=1;i<nums.size();i++){
-            if(nums[i] == nums[i-1])
-                return nums[i];
-        }
-        return nums[i];
-        
-        //xor
-        //not on more than 2 duplicates
-        int x = 0, y = 0;
-        for(i=0;i<nums.size();i++){
-            x = x xor nums[i];
-            y = y xor i;
-        }
-        return abs(x-y);
-        */
         //floyds cycle but here
         int slow = nums[0], fast = nums[0];
         
@@ -34,6 +16,27 @@ public:
             fast = nums[fast];
         }
         return slow; 
+        
+        //count frequency
+        
+        //set nums[i] as index to -ve 
+        
+        //sorting
+        sort(nums.begin(),nums.end());
+        for(i=1;i<nums.size();i++){
+            if(nums[i] == nums[i-1])
+                return nums[i];
+        }
+        return nums[i];
+        
+        //xor
+        //not on more than 2 duplicates
+        int x = 0, y = 0;
+        for(i=0;i<nums.size();i++){
+            x = x xor nums[i];
+            y = y xor i;
+        }
+        return abs(x-y);
         
         //add
         //not for more than 1 duplicate

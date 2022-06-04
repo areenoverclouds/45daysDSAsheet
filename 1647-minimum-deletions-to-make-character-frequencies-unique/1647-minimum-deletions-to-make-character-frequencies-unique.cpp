@@ -16,12 +16,11 @@ public:
         for(i=1; i<freq.size(); i++){
             if(freq[i] == 0) break;
             
-            while(freq[i] >= freq[i-1]){
+            while(freq[i] >= freq[i-1] && freq[i]){
                 freq[i]--;
                 ans++;
             }
             
-            if(freq[i] <= 0) freq[i] = 1;
         }
         
         return ans;

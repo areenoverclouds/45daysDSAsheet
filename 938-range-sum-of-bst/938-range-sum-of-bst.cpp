@@ -26,6 +26,7 @@ public:
         calculateSum(root->left, low, high, sum);
         
         //right subtree
+        if(root->val < high)
         calculateSum(root->right, low, high, sum);
     }
     

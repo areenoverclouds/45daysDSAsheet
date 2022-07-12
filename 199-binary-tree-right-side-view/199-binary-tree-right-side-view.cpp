@@ -11,17 +11,27 @@
  */
 class Solution {
 public:
-    void fillup(TreeNode* root, int level, vector<int>& ans){
-        if(root == NULL) return;
-        if(ans.size() < level) ans.push_back(root->val);
-        fillup(root->right, level + 1, ans);
-        fillup(root->left, level + 1, ans);
-    }
- 
     vector<int> rightSideView(TreeNode* root) {
+        queue<TreeNode*> q;
         vector<int> ans;
-        if(!root) return ans;
-        fillup(root, 1, ans);
+        
+        if(root) q.push(root);
+        
+        while(!q.empty()){
+            int level_size = q.size();
+            
+            vector<int> level;
+            
+            while(level_size-- > 0){
+                TreeNode* cur = q.front(); q.pop();
+                
+                level.push_back(cur->val);
+                
+                if(cur->left) q.push(cur->left);
+                if(cur->right) q.push(cur->right);
+            }
+            ans.push_back(level[level.size()-1]);
+        }
         return ans;
     }
 };

@@ -1,10 +1,11 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+    
         multimap<int,int> mp;
 		
         for(int i=0; i<nums.size(); i++)
-            mp.insert(pair<int, int>(nums[i], i));
+            mp.insert({nums[i], i});
        
 	    auto it1 = mp.begin();
         for(; it1 != mp.end(); it1++){

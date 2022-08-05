@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int convert(string w1, string w2, int i, int j, vector<vector<int>>& dp){
+    int convert(string &w1, string &w2, int i, int j, vector<vector<int>>& dp){
         if(i == w1.size()) return w2.size() - j;
         if(j == w2.size()) return w1.size() - i;
         int ins, del, rep;

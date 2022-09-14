@@ -12,7 +12,8 @@
 class Solution {
 public:
     map<int, int> m;
-    void countPaths(TreeNode* root, int &ans){
+    int ans = 0;
+    void countPaths(TreeNode* root){
         if(!root) return;
         m[root->val]++;
         if(!root->left && !root->right){
@@ -20,14 +21,13 @@ public:
             for(auto it:m) if(it.second % 2 != 0) count++;
             if(count <= 1) ans++;
         }
-        countPaths(root->left, ans);
-        countPaths(root->right, ans);
+        countPaths(root->left);
+        countPaths(root->right);
         m[root->val]--;
     }
     
     int pseudoPalindromicPaths (TreeNode* root) {
-        int ans = 0;
-        countPaths(root, ans);
+        countPaths(root);
         return ans;
     }
 };

@@ -26,7 +26,6 @@ public:
     }
     
     int pseudoPalindromicPaths (TreeNode* root) {
-        if(!root) return 0;
         int ans = 0;
         countPaths(root, ans);
         return ans;

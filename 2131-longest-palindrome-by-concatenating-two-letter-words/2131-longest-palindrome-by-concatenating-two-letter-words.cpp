@@ -29,9 +29,6 @@ public:
         
         for(auto ele: haveth){
             if(ele.second % 2 == 0) len += ele.second * 2;
-            else if(ele.second == 1){
-                mids = 2;
-            }
             else{
                 len += (ele.second - 1) * 2;
                 mids = 2;

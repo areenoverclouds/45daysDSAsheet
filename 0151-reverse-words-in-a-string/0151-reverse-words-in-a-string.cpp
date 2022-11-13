@@ -12,9 +12,8 @@ public:
             else if(ch != ' ') temp += ch;
         }
         words.push_back(temp);
-        reverse(words.begin(), words.end());
         temp = "";
-        for(auto w: words) temp += w;
+        for(int i = words.size()-1; i >= 0; i--) temp += words[i];
         int st = 0;
         while(temp[st] == ' ') st++;
         return temp.substr(st, temp.size());
